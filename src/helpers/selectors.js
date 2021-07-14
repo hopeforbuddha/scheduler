@@ -29,15 +29,37 @@ export function getInterviewersForDay(state, days) {
   const filteredDay = state.days.filter((tempArr) => {
     return tempArr.name === days;
   });
-  console.log(filteredDay);
 
   if (filteredDay.length > 0) {
     const filteredInterviewers = filteredDay[0].interviewers.map((obj) => {
-      console.log("id---", obj);
       return state.interviewers[obj];
     });
     return filteredInterviewers;
   } else {
     return [];
   }
+}
+
+export function updateSpots(state, creation) {
+  for (let i = 0; i < state.days.length; i++) {
+    console.log("%%", state.days[i].name);
+    if (state.days[i].name === state.day) {
+      console.log("--", state.day);
+      if (creation === true) {
+        state.days[i].spots -= 1;
+        return state;
+      } else if (creation === false) {
+        state.days[i].spots += 1;
+        return state;
+      }
+    }
+    //return "day not found"
+  }
+
+  // const filteredSpots = filteredDay.interviews.map((obj) => {
+  //   console.log("$$$",state.interview[obj])
+  //   return state.interview[obj]
+  // })
+  // console.log(filteredSpots)
+  // return filteredSpots
 }
