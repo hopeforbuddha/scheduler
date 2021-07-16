@@ -13,9 +13,9 @@ export default function useApplicationData() {
   });
 
   useEffect(() => {
-    const daysURL = `http://localhost:8001/api/days`;
-    const appointmentsURL = `http://localhost:8001/api/appointments`
-    const interviewersURL = `http://localhost:8001/api/interviewers`
+    const daysURL = `/api/days`;
+    const appointmentsURL = `/api/appointments`
+    const interviewersURL = `/api/interviewers`
     Promise.all([
       axios.get(daysURL),
       axios.get(appointmentsURL),
@@ -45,7 +45,7 @@ export default function useApplicationData() {
 
     
     
-      return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
+      return axios.put(`/api/appointments/${id}`, {interview})
       .then((res) => {
         updateSpots(state, true)
         setState({
@@ -66,7 +66,7 @@ export default function useApplicationData() {
         ...state.appointments,
         [id]: appointment
       }
-      return axios.delete(`http://localhost:8001/api/appointments/${id}`, {interview})
+      return axios.delete(`/api/appointments/${id}`, {interview})
       .then((res) => {
         updateSpots(state, false)
         setState({

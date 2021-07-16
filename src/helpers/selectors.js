@@ -42,9 +42,7 @@ export function getInterviewersForDay(state, days) {
 
 export function updateSpots(state, creation) {
   for (let i = 0; i < state.days.length; i++) {
-    console.log("%%", state.days[i].name);
     if (state.days[i].name === state.day) {
-      console.log("--", state.day);
       if (creation === true) {
         state.days[i].spots -= 1;
         return state;
