@@ -40,24 +40,21 @@ export function getInterviewersForDay(state, days) {
   }
 }
 
-export function updateSpots(state, creation) {
+export function updateSpots(state, appointments) {
+  const currentDay = state.days.find((day) => {
+    return day.name === state.day
+  })
+
+  const nullAppointments = currentDay.appointments.filter((id) => {
+    return appointments[id].interview === null
+  })
+
+  const spots = nullAppointments.length
+  
   for (let i = 0; i < state.days.length; i++) {
     if (state.days[i].name === state.day) {
-      if (creation === true) {
-        state.days[i].spots -= 1;
+        state.days[i].spots = spots
         return state;
-      } else if (creation === false) {
-        state.days[i].spots += 1;
-        return state;
-      }
     }
-    //return "day not found"
   }
-
-  // const filteredSpots = filteredDay.interviews.map((obj) => {
-  //   console.log("$$$",state.interview[obj])
-  //   return state.interview[obj]
-  // })
-  // console.log(filteredSpots)
-  // return filteredSpots
 }
