@@ -65,7 +65,7 @@ export default function Appointment(props) {
         />
       )}
       {mode === CREATE && (
-        <Form onSave={save} interviewers={props.interviewers} onCancel={back} />
+        <Form onKeyPress={props.onKeyPress} onSave={save} interviewers={props.interviewers} onCancel={back} />
       )}
       {mode === SAVING && <Status message="Saving" />}
       {mode === DELETING && <Status message="Deleting" />}
