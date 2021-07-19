@@ -83,6 +83,7 @@ export default function Appointment(props) {
           interviewer={props.interview.interviewer.id}
           name={props.interview.student}
           onCancel={back}
+          onKeyPress={props.onKeyPress}
         />
       )}
       {mode === ERROR_DELETE && (

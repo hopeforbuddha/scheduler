@@ -21,10 +21,9 @@ export default function Form(props) {
   }
 
   const handleKeyPress = (event) => {
-    console.log("out the if", event.key);
     if (event.key === "Enter" || event.key === "NumpadEnter") {
-      console.log("in the if");
       event.preventDefault();
+      validate()
     }
   };
 
