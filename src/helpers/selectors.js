@@ -42,19 +42,19 @@ export function getInterviewersForDay(state, days) {
 
 export function updateSpots(state, appointments) {
   const currentDay = state.days.find((day) => {
-    return day.name === state.day
-  })
+    return day.name === state.day;
+  });
 
   const nullAppointments = currentDay.appointments.filter((id) => {
-    return appointments[id].interview === null
-  })
+    return appointments[id].interview === null;
+  });
 
-  const spots = nullAppointments.length
-  
+  const spots = nullAppointments.length;
+
   for (let i = 0; i < state.days.length; i++) {
     if (state.days[i].name === state.day) {
-        state.days[i].spots = spots
-        return state;
+      state.days[i].spots = spots;
+      return state;
     }
   }
 }

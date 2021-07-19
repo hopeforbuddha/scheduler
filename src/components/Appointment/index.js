@@ -29,7 +29,7 @@ export default function Appointment(props) {
     props
       .bookInterview(props.id, interview)
       .then(() => {
-        console.log("Checking for error/non-error")
+        console.log("Checking for error/non-error");
         transition(SHOW);
       })
       .catch((err) => {

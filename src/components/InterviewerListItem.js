@@ -1,13 +1,10 @@
-import React from 'react';
-import classNames from 'classnames';
-import 'components/InterviewerListItem.scss';
+import React from "react";
+import classNames from "classnames";
+import "components/InterviewerListItem.scss";
 
-
-
-const InterviewerListItem = function(props) {
-
+const InterviewerListItem = function (props) {
   const interviewerItemClass = classNames("interviewers__item", {
-    "interviewers__item--selected" : props.selected
+    "interviewers__item--selected": props.selected,
   });
   return (
     <li className={interviewerItemClass} onClick={props.setInterviewer}>
